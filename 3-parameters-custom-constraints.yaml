@@ -6,6 +6,7 @@ description: >
   reports. Then fix it with using --parameter flavor=m1.small.
   You could try to use invalide flavor and see that constraint is verifying
   the given flavor :)
+  Also try with default value as commented below
 
 parameters:
 # Try to use flavor parameter and validate it with custom constraints
@@ -15,3 +16,6 @@ parameters:
     description: Flavor to use for the WordPress server.
     constraints:
       - custom_constraint: nova.flavor
+#   Also, try to uncomment below line, to use the default value, in that case,
+# user is not required to give --parameter.
+#    default: m1.small

@@ -1,11 +1,12 @@
 heat_template_version: 2016-04-08
 
 description: >
-  Helps to understand the parameter section and get_param
+  Helps to understand the parameter section and get_param intrinsic functions
 
 parameters:
   password:
-# Types are case-sensitive. be aware of it
+# Types are case-sensitive. be aware of it, try to change to String and see
+# error
       type: string
       description: The WordPress database admin account username
       default: admin

@@ -5,7 +5,7 @@ description: >
   Once you create a stack with this template, run the below command to
   see the sequence of resource creation, rsc_c is created after rsc_a and
   rsc_b are created.
-
+      openstack stack event list <stack name>
   It also show case the use of get_resource function. usually its used
   in the resources section to get dependent resource ids, here its
   illustrated to learn the usage of it.
@@ -17,7 +17,7 @@ resources:
     type: OS::Heat::RandomString
   rsc_c:
     type: OS::Heat::RandomString
-    depends-on: [rsc_a, rsc_b]
+    depends_on: [rsc_a, rsc_b]
 
 
 outputs:

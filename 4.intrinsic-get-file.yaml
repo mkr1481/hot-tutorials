@@ -1,7 +1,7 @@
 heat_template_version: 2016-04-08
 
 description: >
-  Sample template to test the get_file
+  Sample template to learn the get_file
   Always provide an relative path of the file being fetched w.r.t this
   template in the filesystem.
 
@@ -9,4 +9,4 @@ description: >
 outputs:
   file_content:
     value:
-      get_file: 5-hostname.sh
+      get_file: 4-hostname.sh

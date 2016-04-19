@@ -1,0 +1,14 @@
+heat_template_version: 2016-04-08
+
+description: >
+  Helps to learn template to add one resource and use of get_attr function
+  1. Study about the supported resources from
+  http://docs.openstack.org/developer/heat/template_guide/openstack.html
+  2. Try to change the type of 'first_rsc' below to 'OS::Nova::Flavor' and
+  validate it. Heat will report error and correct by adding Required Properties
+  mentioned in the below link
+  http://docs.openstack.org/developer/heat/template_guide/openstack.html#OS::Nova::Flavor
+
+resources:
+  first_rsc:
+    type: OS::Heat::RandomString

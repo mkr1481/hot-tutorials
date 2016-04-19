@@ -1,2 +1,7 @@
-heat_template_version: 2016-04-08
+heat_template_version: 2016-04-09
 
+description: >
+  1. List of supported version using one of below command
+  openstack orchestration template version list
+  heat template-version-list
+  2. Pick the valid version and update it in heat_template_version.

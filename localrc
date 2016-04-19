@@ -1,0 +1,44 @@
+HOST_IP=172.241.0.101
+SERVICE_HOST=172.241.0.101
+MYSQL_HOST=172.241.0.101
+RABBIT_HOST=172.241.0.101
+ADMIN_PASSWORD=password
+DATABASE_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_PASSWORD=password
+
+# Do not use Nova-Network
+disable_service n-net tempest
+# Enable Neutron
+ENABLED_SERVICES+=,q-svc,q-dhcp,q-meta,q-agt,q-l3,q-lbaas
+
+## Neutron options
+#FLOATING_RANGE=172.241.0.0/24
+#FIXED_RANGE=10.1.0.0/24
+#PUBLIC_NETWORK_GATEWAY=172.241.0.1
+#NETWORK_GATEWAY=10.1.0.1
+
+#ENABLED_SERVICES+=,ceilometer-acompute,ceilometer-acentral,ceilometer-anotification,ceilometer-collector,ceilometer-alarm-evaluator,ceilometer-alarm-notifier,ceilometer-api
+enable_plugin ceilometer https://git.openstack.org/openstack/ceilometer.git
+enable_plugin aodh https://git.openstack.org/openstack/aodh master
+
+ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
+IMAGE_URL_SITE="http://download.fedoraproject.org"
+IMAGE_URL_PATH="/pub/fedora/linux/releases/21/Cloud/Images/x86_64/"
+IMAGE_URL_FILE="Fedora-Cloud-Base-20141203-21.x86_64.qcow2"
+IMAGE_URLS+=","$IMAGE_URL_SITE$IMAGE_URL_PATH$IMAGE_URL_FILE
+
+LIBS_FROM_GIT=python-heatclient,oslo.config,oslo.service
+
+enable_plugin tacker https://git.openstack.org/openstack/tacker master
+
+LOG_COLOR=True
+SCREEN_LOGDIR=/opt/stack/logs
+LOGFILE=/opt/stack/logs/stack.sh.log
+GIT_BASE=https://git.openstack.org
+no_proxy=localhost,172.241.0.101
+#RECLONE=yes
+#PIP_UPGRADE=True
+IP_VERSION=4
+ENABLE_IDENTITY_V2=False
+ENABLE_HTTPD_MOD_WSGI_SERVICES=False

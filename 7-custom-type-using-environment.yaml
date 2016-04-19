@@ -4,7 +4,7 @@ description: >
   Uses provider template and helps to learn about custom typing
   using environment.
   Try to create stack with environment in place
-  openstack stack create -e 7-test-environment.yaml -t <this template> test-stk
+     openstack stack create -e 7-test-environment.yaml -t <this template> test-stk
   and check the resource_type for 'rsc' resource by
   doing 'openstack stack resource list test-stk. Heat creates the
   custom type as internal stack.

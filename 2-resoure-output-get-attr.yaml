@@ -1,0 +1,27 @@
+heat_template_version: 2016-10-14
+
+description: >
+  please make sure whilespace is used properly.
+  It is recommended to make sure the template document is always proper
+  YAML/JSON.
+  Also learn to get the given output attributes, all output attributes and
+  all propperties of resources , by uncommenting in 'outputs' section
+
+resources:
+  first_rsc:
+    type: OS::Nova::Flavor
+    properties:
+      vcpus: 1
+      ram: 1024
+      name: m1.demo
+
+outputs:
+  random_str:
+# Try to correct the below one with proper whitespace like get_attr: [first...]
+    value: {get_attr: [first_rsc,value]}
+# How to get the all outputs of resource, comment out the below lines
+#  all_outputs:
+    value: { get_attr: [first_rsc]}
+# How to get the complete resource properties , comment out the below lines
+#  all_outputs:
+    value: { get_attr: [first_rsc, show]}

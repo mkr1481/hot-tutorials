@@ -3,6 +3,7 @@ heat_template_version: 2016-04-08
 description: >
   Helps to understand the data manipulation  and utlitity functions.
   Try to create stack with this template and see the output
+  Try to modify the input values for each of these methods and see the output
 
 outputs:
   sample_map_merge:
