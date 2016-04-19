@@ -1,0 +1,30 @@
+heat_template_version: 2016-04-08
+
+description: >
+  Uses provider template and helps to learn about resource facade
+  Try to create stack and check the metadata for 'rsc' resource by
+  doing 'openstack stack resource metadata <stack name> rsc.
+
+#manickan@mrkanag-os:~/workspace/hot-tutorials$ openstack stack resource list test13
+#+---------------+--------------------------------------+------------------------------------------------------------------------+-----------------+---------------------+
+#| resource_name | physical_resource_id                 | resource_type                                                          | resource_status | updated_time        |
+#+---------------+--------------------------------------+------------------------------------------------------------------------+-----------------+---------------------+
+#| rsc           | 5128e64a-7ba3-4b51-928b-c28f68e1ed7d | file:///home/manickan/workspace/hot-tutorials/7-provider-template.yaml | CREATE_COMPLETE | 2016-04-19T10:09:32 |
+#+---------------+--------------------------------------+------------------------------------------------------------------------+-----------------+---------------------+
+#manickan@mrkanag-os:~/workspace/hot-tutorials$ openstack stack resource metadata test13 rsc
+#{
+#  "key1": "value1"
+#}manickan@mrkanag-os:~/workspace/hot-tutorials$
+#manickan@mrkanag-os:~/workspace/hot-tutorials$ openstack stack resource metadata 5128e64a-7ba3-4b51-928b-c28f68e1ed7d rsc_rf
+#{
+#  "key1": "value1"
+#}manickan@mrkanag-os:~/workspace/hot-tutorials$
+
+# The same meta data is used in both the stack
+resources:
+  rsc:
+    type: 7-provider-template.yaml
+    metadata:
+      key1: 'value1'
+
+

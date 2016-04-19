@@ -1,0 +1,36 @@
+heat_template_version: 2016-04-08
+
+description: >
+  Helps to understand the data manipulation  and utlitity functions.
+  Try to create stack with this template and see the output
+
+outputs:
+  sample_map_merge:
+    value:
+      map_merge: [{"k1": "v1", "k2": "v2"}, {"k1": "v2"}]
+  sample_str_split:
+    value:
+#    Try without indexing
+      str_split: [",", "string,to,split", 0]
+  sample_list_join:
+    value:
+      list_join: ["-", ["a", "b", "c"], ["d", "e"]]
+  sample_str_replace:
+    value:
+      str_replace:
+        template: "http://host:port/v1"
+        params:
+          host: 192.168.10.1
+          port: 8088
+  sample_loop:
+   value:
+     repeat:
+       for_each:
+         <%port%>: ["80", "443"]
+         <%protocol%>: ["udp", "tcp"]
+       template:
+         protocol: <%protocol%>
+         port_range_min: <%port%>
+  sample_digest:
+    value:
+      digest: ["sha512", "password"]

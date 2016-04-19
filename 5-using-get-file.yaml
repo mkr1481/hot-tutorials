@@ -1,0 +1,26 @@
+heat_template_version: 2016-04-08
+
+description: >
+  To learn the depends-on, this template could be used.
+  Once you create a stack with this template, run the below command to
+  see the sequence of resource creation, rsc_c is created after rsc_a and
+  rsc_b are created.
+
+  It also show case the use of get_resource function. usually its used
+  in the resources section to get dependent resource ids, here its
+  illustrated to learn the usage of it.
+
+resources:
+  rsc_a:
+    type: OS::Heat::RandomString
+  rsc_b:
+    type: OS::Heat::RandomString
+  rsc_c:
+    type: OS::Heat::RandomString
+    depends-on: [rsc_a, rsc_b]
+
+
+outputs:
+  rsc_c_id:
+    value:
+      get_resource: rsc_c
