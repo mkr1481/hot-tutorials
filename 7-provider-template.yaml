@@ -1,0 +1,26 @@
+heat_template_version: 2016-04-08
+
+description: >
+  sample provider template which helps to bifurcate the bigger template
+  logically. It get param1 and outputs string 'you have given $param1'.
+  Also its used to learn about resource-facade fn. This template is used
+  by its parent template starts with 7-xxx.yaml
+
+parameters:
+  param1:
+    type: string
+    description: sample test param
+    default: nothing
+
+resources:
+  rsc_rf:
+    type: OS::Heat::None
+    metadata:
+      resource_facade: metadata
+outputs:
+  echo_str:
+    value:
+      str_replace:
+        template: you have given param.
+        params:
+          param: {get_param: param1}

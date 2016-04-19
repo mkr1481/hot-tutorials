@@ -1,0 +1,15 @@
+heat_template_version: 2016-10-14
+
+description: >
+  please make sure whilespace is used properly especially intrinsic functions.
+  It is recommended to make sure the template document is always proper
+  YAML/JSON.
+
+resources:
+  first_rsc:
+    type: OS::Heat::RandomString
+
+outputs:
+  random_str:
+#  Try to correct the below one with proper whitespace in place
+     value: {get_attr:[first_rsc,value]}

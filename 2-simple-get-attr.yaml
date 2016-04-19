@@ -1,0 +1,15 @@
+heat_template_version: 2016-04-08
+
+description: has one resource and uses get_attr function
+
+resources:
+  first_rsc:
+    type: OS::Heat::RandomString
+
+outputs:
+# How to get the given output value of a resource
+  random_str:
+     value: { get_attr: [ first_rsc, value ]}
+# How to get the all outputs of resource
+  all_outputs:
+     value: { get_attr: [first_rsc]}

@@ -1,0 +1,2 @@
+resource_registry:
+  OS::Demo::Type1 : 7-provider-template.yaml

@@ -1,0 +1,26 @@
+heat_template_version: 2016-04-08
+
+description: >
+  Helps to understand the parameter section and get_param
+
+parameters:
+  password:
+# Types are case-sensitive. be aware of it
+      type: string
+      description: The WordPress database admin account username
+      default: admin
+# Try to create a stack with this template and do 'openstack stack show'
+# Verify that the hidden parameter's value is masked.
+      hidden: true
+      constraints:
+        - length: { min: 1, max: 16 }
+          description: db_username must be between 1 and 16 characters
+        - allowed_pattern: '[a-zA-Z][a-zA-Z0-9]*'
+          description: >
+            db_username must begin with a letter and contain only alphanumeric
+            characters
+
+outputs:
+  password:
+#  Try to use {getparam: password} , without [] for args in place
+    value: { get_param: [password]}
